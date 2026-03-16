@@ -16,6 +16,5 @@ const nodePort = process.env.NODEWEB_PORT;
 const webPort = process.env.IS_CONTAINER ? 8080 : nodePort;
 
 app.listen(nodePort, () => {
-    console.log(process.env.TESTE);
     console.log(chalk.green(`Servidor: http://localhost:${webPort}`));
 });
