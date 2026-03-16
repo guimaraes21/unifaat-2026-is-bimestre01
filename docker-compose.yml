@@ -1,0 +1,39 @@
+services:
+
+  #NODE WEB
+  nodeweb-container:
+    build:
+      context: .
+      dockerfile: docker/node-web/Dockerfile.dev
+    env_file: 
+      - .env
+      - .env.docker
+    volumes:
+      - .:/app
+      - nodemodules-is-volume:/app/node_modules
+    restart: unless-stopped
+    networks:
+      app-network:
+        aliases:
+            - nodeweb_host
+
+  #NGINX
+  nginx-container:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/public
+    depends_on:
+      - nodeweb-container
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  nodemodules-is-volume:
