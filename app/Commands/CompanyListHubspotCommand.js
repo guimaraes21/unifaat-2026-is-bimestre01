@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
 
-    name: 'hubspot-company-create',
-    description: 'Create Company in Hubspot',
+    name: 'hubspot-company-list',
+    description: 'List Companies in Hubspot',
     arguments: {
 
     },
@@ -15,17 +15,17 @@ export default {
             return;
         }
 
-        const url = `https://api.hubapi.com/companies/v2/companies`;
+        const query = {
+            "properties": "name,address,city"
+        }
+
+        const queryString = new URLSearchParams(query).toString();
+
+        const url = `https://api.hubapi.com/companies/v2/companies/paged?${queryString}`;
 
         console.log(url);
 
-        const response = await axios.post(url, {
-            "properties": [
-                { "name": "name", "value": "Unifaat Tecnologia Ltda" },
-                { "name": "address", "value": "Av. Irmaos Andrade, 140" },
-                { "name": "city", "value": "Atibaia" }
-            ]
-        }, {
+        const response = await axios.get(url, {
             headers: {
                 'Authorization': `Bearer ${hubspotToken}`
             }
