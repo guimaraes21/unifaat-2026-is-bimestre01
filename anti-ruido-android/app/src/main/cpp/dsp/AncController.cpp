@@ -309,6 +309,10 @@ void AncController::blockUpdate() {
     if (!locked_) {
         for (auto& w : w_) w *= 0.9f;
     }
+    // Pesos que decaíram a quase zero viram zero: evita números subnormais (lentos em ARM).
+    for (auto& w : w_) {
+        if (std::norm(w) < 1e-24f) w = cfloat();
+    }
     ++verifyTick_;
     refreshPath();
 }

@@ -129,6 +129,7 @@ private:
     Calibrator calibrator_;
     SecondaryPath model_;
     int modelSerial_ = 0;
+    bool exportPending_ = false;  // calibração nova ainda não copiada para exportedModel_
     Settings settings_;
     float hints_[kMaxHints] = {};
     int numHints_ = 0;

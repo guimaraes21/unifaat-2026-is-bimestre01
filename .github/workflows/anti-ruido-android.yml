@@ -16,7 +16,7 @@ jobs:
     name: Simulação do DSP
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Compilar e rodar o simulador da cabine
         run: |
           cmake -S anti-ruido-android/dsp-test -B build-dsp -DCMAKE_BUILD_TYPE=Release
@@ -31,8 +31,8 @@ jobs:
       run:
         working-directory: anti-ruido-android
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'

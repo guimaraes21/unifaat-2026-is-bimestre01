@@ -131,6 +131,13 @@ int AncProcessor::spectrum(float* estimate, float* mic, int capacity, float* bin
 // Thread de áudio
 
 void AncProcessor::applyPending() {
+    // O serviço só salva quando o número de série muda: incrementa depois da cópia pronta.
+    if (exportPending_ && exportMutex_.try_lock()) {
+        exportedModel_ = model_;
+        exportMutex_.unlock();
+        exportPending_ = false;
+        ++modelSerial_;
+    }
     if (settingsDirty_.load() && pendingMutex_.try_lock()) {
         settings_ = pendingSettings_;
         settingsDirty_.store(false);
@@ -301,11 +308,7 @@ void AncProcessor::checkCalibrator() {
     if (state_ == State::Calibrate) {
         if (st == Calibrator::Stage::Done) {
             model_ = calibrator_.model();
-            ++modelSerial_;
-            if (exportMutex_.try_lock()) {
-                exportedModel_ = model_;
-                exportMutex_.unlock();
-            }
+            exportPending_ = true;
             controller_.setModel(&model_);
             sessionDelay_ = calibrator_.sessionDelay();
             sessionGain_ = 1.0f;

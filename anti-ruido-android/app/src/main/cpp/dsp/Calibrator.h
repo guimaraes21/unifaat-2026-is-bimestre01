@@ -95,7 +95,6 @@ private:
     float sessionGain_ = 1.0f;
     double driftRate_ = 0.0;
     bool secondBurst_ = false;
-    bool burstPending_ = false;
     int64_t firstBurstStart_ = 0;
     int64_t lastInput_ = 0;
     int64_t sweepEndN_ = -1;
