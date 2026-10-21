@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Anti-Ruído</string>
+    <string name="notif_channel">Cancelamento de ruído</string>
+    <string name="notif_starting">Iniciando o áudio…</string>
+
+    <string name="btn_anc_on">Ligar ANC</string>
+    <string name="btn_anc_off">Desligar ANC</string>
+    <string name="btn_calibrate">Calibrar</string>
+    <string name="btn_latency">Medir latência</string>
+    <string name="btn_quit">Sair</string>
+    <string name="btn_apply">Aplicar configurações</string>
+    <string name="btn_obd_device">Escolher adaptador OBD-II</string>
+
+    <string name="spectrum_legend">Laranja: ronco estimado sem ANC · Azul: o que o microfone ouve · Verde: frequências tratadas</string>
+
+    <string name="section_settings">Configurações</string>
+    <string name="section_help">Como usar</string>
+    <string name="label_harmonics">Harmônicas tratadas (fundamental + múltiplos)</string>
+    <string name="label_convergence">Velocidade de adaptação: %1$.2f</string>
+    <string name="label_max_out">Volume máximo da anti-onda: %1$.0f%%</string>
+    <string name="label_range">Faixa onde procurar o ronco</string>
+    <string name="label_to">a</string>
+    <string name="label_hz">Hz</string>
+    <string name="hint_fmin">25</string>
+    <string name="hint_fmax">250</string>
+    <string name="label_engine">Motor (para o OBD-II)</string>
+    <string name="cb_vcm">V6 com VCM (3/4/6 cilindros)</string>
+    <string name="cb_obd">Usar RPM do OBD-II (adaptador ELM327 Bluetooth)</string>
+    <string name="label_preset">Tipo de captura do microfone</string>
+    <string name="cb_auto_latency">Medir latência e volume ao ligar o ANC (recomendado)</string>
+    <string name="label_burst">Nível do chiado de teste: %1$.0f%%</string>
+    <string name="label_probe">Nível dos tons da calibração: %1$.0f%%</string>
+    <string name="cb_volume">Medir de novo quando o volume mudar</string>
+    <string name="cb_low_latency">Modo de baixa latência (só se o áudio falhar no modo normal)</string>
+    <string name="cb_auto_start">Ligar o ANC automaticamente ao abrir o app</string>
+
+    <string name="cal_title">Calibrar</string>
+    <string name="cal_message">A calibração toca um chiado curto e depois uma sequência de tons graves por cerca de 40 segundos.\n\n• Carro parado, motor desligado (ignição em ACC)\n• Portas e vidros fechados, sem música tocando\n• Volume no nível em que você costuma ouvir\n• Equalizador/fader como você usa no dia a dia\n\nComeçar?</string>
+    <string name="cal_start">Começar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="perm_needed">Sem permissão de microfone o app não funciona.</string>
+    <string name="obd_pick">Adaptador OBD-II pareado</string>
+    <string name="obd_none">Nenhum dispositivo Bluetooth pareado. Pareie o ELM327 nas configurações do Android (senha costuma ser 1234 ou 0000).</string>
+    <string name="obd_unavailable">O Bluetooth desta multimídia não está acessível para apps (comum quando o Bluetooth é um módulo separado). Use sem OBD-II.</string>
+    <string name="applied">Configurações aplicadas</string>
+
+    <string name="help">1. Calibre uma vez (botão Calibrar) com o carro parado e o motor desligado. O app mede a latência do áudio da multimídia e como cada frequência grave sai dos alto-falantes e chega ao microfone.\n\n2. Ligue o motor, saia rodando e toque em Ligar ANC. A cada vez que liga, o app solta um chiado curto para conferir latência e volume.\n\n3. O app procura o ronco tonal do motor (por exemplo o ronco do VCM em velocidade de cruzeiro) e gera uma onda em oposição de fase só nessa frequência e nas harmônicas. Ruído de pneu, vento, buzinas e sirenes não são cancelados.\n\n4. O cancelamento funciona melhor perto do microfone. Coloque o microfone no forro do teto, entre as cabeças do motorista e do passageiro (é onde a Honda instala os microfones do ANC original).\n\n5. Mudou volume, equalizador, fader ou o lugar do microfone? Se o cancelamento piorar, calibre de novo.\n\nSegurança: o app limita a amplitude da anti-onda e desliga sozinho se o ruído aumentar. Mesmo assim, comece com volume moderado.</string>
+</resources>

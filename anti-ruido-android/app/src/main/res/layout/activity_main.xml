@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/headline"
+            style="@style/Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#FFFF8A65"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/calProgress"
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="1000"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAnc"
+                style="@style/MainButton"
+                android:text="@string/btn_anc_on" />
+
+            <Button
+                android:id="@+id/btnCalibrate"
+                style="@style/MainButton"
+                android:text="@string/btn_calibrate" />
+
+            <Button
+                android:id="@+id/btnLatency"
+                style="@style/MainButton"
+                android:text="@string/btn_latency" />
+
+            <Button
+                android:id="@+id/btnQuit"
+                style="@style/MainButton"
+                android:text="@string/btn_quit" />
+        </LinearLayout>
+
+        <br.com.antiruido.ui.SpectrumView
+            android:id="@+id/spectrum"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginTop="8dp"
+            android:background="#FF101418" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spectrum_legend"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:textSize="13sp" />
+
+        <!-- Configurações -->
+        <TextView
+            style="@style/Section"
+            android:text="@string/section_settings" />
+
+        <TextView
+            style="@style/Label"
+            android:text="@string/label_harmonics" />
+
+        <Spinner
+            android:id="@+id/spHarmonics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/lblConvergence"
+            style="@style/Label" />
+
+        <SeekBar
+            android:id="@+id/sbConvergence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="45" />
+
+        <TextView
+            android:id="@+id/lblMaxOut"
+            style="@style/Label" />
+
+        <SeekBar
+            android:id="@+id/sbMaxOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="58" />
+
+        <TextView
+            style="@style/Label"
+            android:text="@string/label_range" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etFmin"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/hint_fmin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/label_to" />
+
+            <EditText
+                android:id="@+id/etFmax"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:importantForAutofill="no"
+                android:hint="@string/hint_fmax" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/label_hz" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/Label"
+            android:text="@string/label_engine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spCylinders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/cbVcm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_vcm" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbObd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_obd" />
+
+        <Button
+            android:id="@+id/btnObdDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_obd_device" />
+
+        <TextView
+            style="@style/Label"
+            android:text="@string/label_preset" />
+
+        <Spinner
+            android:id="@+id/spPreset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/cbAutoLatency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_auto_latency" />
+
+        <TextView
+            android:id="@+id/lblBurst"
+            style="@style/Label" />
+
+        <SeekBar
+            android:id="@+id/sbBurst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="29" />
+
+        <TextView
+            android:id="@+id/lblProbe"
+            style="@style/Label" />
+
+        <SeekBar
+            android:id="@+id/sbProbe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="47" />
+
+        <CheckBox
+            android:id="@+id/cbVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_volume" />
+
+        <CheckBox
+            android:id="@+id/cbLowLatency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_low_latency" />
+
+        <CheckBox
+            android:id="@+id/cbAutoStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_auto_start" />
+
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/btn_apply" />
+
+        <TextView
+            style="@style/Section"
+            android:text="@string/section_help" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.15"
+            android:text="@string/help"
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>
