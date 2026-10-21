@@ -1,0 +1,11 @@
+# Gradle / Android Studio
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.cxx/
+.externalNativeBuild/
+captures/
+# Simulador de DSP
+dsp-test/build/
