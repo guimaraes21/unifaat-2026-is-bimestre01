@@ -350,7 +350,7 @@ bool scenarioXrun() {
     sim.run(15.0);
     const Measure before = measureFor(sim, 3.0);
     sim.proc.notifyDiscontinuity();
-    sim.stall(600);       // underrun de 12,5 ms na saída
+    sim.stall(6000);      // callbacks parados 125 ms, buffer de 80-100 ms: underrun real de ~25 ms
     sim.run(5.0);
     sim.proc.notifyDiscontinuity();
     sim.dropInput(240);   // overrun: 5 ms perdidos na entrada
@@ -359,7 +359,8 @@ bool scenarioXrun() {
     const Measure after = measureFor(sim, 4.0);
     std::printf("  antes: %.1f dB | depois de underrun+overrun: %.1f dB (underruns=%d)\n", before.red1(),
                 after.red1(), sim.underruns);
-    ok &= expect(after.red1() < -12.0f, "continua cancelando após xruns (rastreamento de defasagem)");
+    ok &= expect(sim.underruns > 480, "o teste provocou underrun de verdade (> 10 ms)");
+    ok &= expect(after.red1() < -12.0f, "continua cancelando após xruns (re-medição da latência)");
     return ok;
 }
 

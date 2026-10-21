@@ -115,7 +115,7 @@ ronco):
 |---|---|
 | Cruzeiro (rotação oscilando ±8 rpm) | −24,6 dB (66,7 Hz), −21,0 dB (133 Hz) |
 | Rampa 1800 → 2300 rpm, depois estável | −35,3 dB |
-| Underrun de 12,5 ms + overrun de 5 ms | −41,3 dB depois de re-medir |
+| Underrun real de 25 ms + overrun de 5 ms (latência 82 → 102 ms) | −39,6 dB depois de re-medir |
 | Deriva de clock de 30 ppm por 60 s | −40,0 dB |
 | Volume +10 dB, −8 dB (avisado) e +8 dB (sem aviso) | −40,5 / −41,3 / −41,4 dB |
 | Modelo salvo com 60° e 3,5 dB de erro | −39,8 dB (correção online de −56°) |
